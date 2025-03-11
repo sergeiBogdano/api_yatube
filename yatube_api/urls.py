@@ -9,6 +9,5 @@ router.register(r'comments', CommentViewSet, basename='comments')
 router.register(r'groups', GroupViewSet, basename='groups')
 
 urlpatterns = [
-    path('api/v1/', include(router.urls)),
     path('api/', include(router.urls)),
 ]
