@@ -10,7 +10,7 @@ class Group(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return self.title
+        return self.title[:20]
 
 
 class Post(models.Model):
@@ -23,14 +23,14 @@ class Post(models.Model):
     )
     image = models.ImageField(
         upload_to='posts/', null=True, blank=True
-    )  # поле для картинки
+    )
     group = models.ForeignKey(
         Group, on_delete=models.SET_NULL,
         related_name='posts', blank=True, null=True
     )
 
     def __str__(self):
-        return self.text
+        return self.title[:20]
 
 
 class Comment(models.Model):
@@ -44,3 +44,6 @@ class Comment(models.Model):
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True
     )
+
+    def __str__(self):
+        return self.title[:20]
