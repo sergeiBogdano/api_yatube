@@ -1,4 +1,4 @@
-from django.urls import include, path
+from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from api.views import CommentViewSet, GroupViewSet, PostViewSet
@@ -9,6 +9,6 @@ router.register(r'comments', CommentViewSet, basename='comments')
 router.register(r'groups', GroupViewSet, basename='groups')
 
 urlpatterns = [
-    path('api/v1/', include('api.urls')),
-    path('api/', include('api.urls')),
+    path('api/v1/', include(router.urls)),
+    path('api/', include(router.urls)),
 ]
