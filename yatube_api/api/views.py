@@ -3,7 +3,7 @@ from rest_framework import permissions, viewsets
 from rest_framework.authentication import TokenAuthentication
 
 from .serializers import (CommentSerializer, GroupSerializer, PostSerializer)
-from posts.models import Comment, Group, Post
+from posts.models import Group, Post
 from .permissions import IsOwnerOrReadOnly
 
 
